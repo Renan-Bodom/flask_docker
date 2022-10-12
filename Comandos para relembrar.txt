@@ -1,0 +1,35 @@
+Iniciar serviço no Arch Linux:
+systemctl start docker.service
+
+------------------ Docker compose -------------
+Subir sistema:
+docker-compose up
+
+Carregar o banco:
+docker exec -i db-carford mysql -uroot -pnork < api/db/dadosTeste.sql
+
+------------------ Sem docker compose ---------------
+Criar a imagem do MySQL:
+sudo docker build -t mysql-carford -f api/db/Dockerfile .
+
+Subir docker com volume:
+sudo docker run -d -v $(pwd)/api/db/data:/var/lib/mysql --link db-carford --rm --name db-carford mysql-carford
+
+Inserir dados no banco:
+sudo docker exec -i db-carford mysql -uroot -pnork < api/db/dadosTeste.sql
+
+Acessar MySQL:
+sudo docker exec -it db-carford /bin/bash
+mysql -uroot -pnork
+use nork
+select * from moradores;
+
+Consulta com relacionamento:
+SELECT moradores.name, cars.modelo, cars.cor FROM cars INNER JOIN moradores ON cars.morador_idmoradores = moradores.id;
+
+Parar docker:
+sudo docker stop db-carford
+
+Comando para subir python:
+sudo docker build -t flask-carford .
+sudo docker run -p 5000:5000 flask-carford
