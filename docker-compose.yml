@@ -1,0 +1,23 @@
+version: "2.11.2"
+services:
+    db-carford:
+        image: mysql
+        container_name: db-carford
+        command: --default-authentication-plugin=mysql_native_password
+        command: --init-file /data/banco/tabelasColunas.sql
+        environment:
+            MYSQL_ROOT_PASSWORD: nork
+        volumes:
+            - ./api/db/data:/var/lib/mysql
+            - ./api/db/tabelasColunas.sql:/data/banco/tabelasColunas.sql
+        external_links:
+            - db-carford
+        restart: always
+        
+    flask:
+        container_name: flask-carford
+        build:
+            "./website"
+        ports:
+            - '5000:5000'
+        restart: always

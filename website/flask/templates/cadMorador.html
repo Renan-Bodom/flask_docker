@@ -1,0 +1,28 @@
+{% extends '_layout.html' %}
+{% block title %}AddResident{% endblock %}
+
+{% block content %}
+
+<div class="residentReg">
+    <h1>Resident registration:</h1>
+    <div class="bd-example">
+        <form action="{{ url_for('cadMorador') }}" method="post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="residentName">Resident name</label>
+                        <input type="text" class="form-control" id="exampleFormControlTextarea1" name="name" placeholder="Name"></input>
+                    </div>
+
+
+                    <div class="col-md-3 registerBotton">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: normal;
+}
+
+/* Tela */
+.container {
+    margin: 0;
+    max-width: 1920px;
+    width: 100%;
+    padding: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+
+/* Cores */
+.bg-dark {
+    background-color: #0656a5!important;
+}
+
+
+/* Tabelas */
+.registerCar {
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.residentsMaxCar {
+    max-width: 450px;
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.residentReg {
+    padding: 10px;
+}
+
+.dashHome {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.subListaCarMoradores{
+    padding-left: 15px;
+}
+
+.linhaCarros {
+    max-width: 300px;
+}
+
+/* Botões */
+.registerBotton {
+    padding-top: 26px;
+}
+
+.iconeLixo {
+    padding-left: 50px;
+    float: right;
+}
+
+.iconeLixoMorador {
+    color: brown;
+    float: right;
+}
+
+/* Rodape */
+.cssFooter {
+    /*position: sticky;*/
+    height: 50px;
+    background-color: #0656a5;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+	bottom: 0;
+}

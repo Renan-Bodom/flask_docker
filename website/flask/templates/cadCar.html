@@ -1,0 +1,57 @@
+{% extends '_layout.html' %}
+{% block title %} cadCar {% endblock %}
+
+{% block content %}
+
+<div class="registerCar">
+    <h1>Register car:</h1>
+    <div class="bd-example">
+        <form action="{{ url_for('cadCar') }}" method="post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="residentName">Resident name</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="idMorador">
+                            {% for morador in moradoresAptosCarro %}
+                            <option value="{{ morador.0 }}">{{ morador.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="residentName">Car model</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="modelo">
+                            <option value="hatch">Hatch</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="convertible">Convertible</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="residentName">Car color</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="cor">
+                            <option value="yellow">Yellow</option>
+                            <option value="blue">Blue</option>
+                            <option value="gray">Gray</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success">Register</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="residentsMaxCar">
+    <div class="bd-example">
+            <ul class="list-group"></ul>
+            <li class="list-group-item active">Residents with 3 or more cars (Not listed on form):</li>
+            {% for morador in moradoresNaoAptosCarro %}
+            <li class="list-group-item"> {{ morador.1 }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

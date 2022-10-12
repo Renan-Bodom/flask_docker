@@ -1,0 +1,45 @@
+{% extends '_layout.html' %}
+{% block title %} CarFord {% endblock %}
+
+{% block content %}
+
+<div class="row dashHome">
+    <div class="col-md-6">
+        <div class="bd-example">
+            <ul class="list-group">
+                <li class="list-group-item active">Residents and cars:</li>
+                {% for comCar in moradoresComCarro %}
+                <li class="list-group-item">
+                    {{ comCar.0 }} 
+                    <a href="/delResident/{{ comCar.1.0.1 }}">
+                        <i class="fa-solid fa-trash iconeLixoMorador"></i>
+                    </a>
+                <ol class="subListaCarMoradores">
+                    {% for car in comCar.1 %}
+                    <li class="linhaCarros">Model: {{ car.2 }}, color: {{ car.3 }} <a href="/delCar/{{ car.0 }}"><i class="fa-solid fa-x iconeLixo"></i></a></li>
+                    {% endfor %}
+                </ol>
+            </li>
+                <br>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="bd-example">
+            <ul class="list-group">
+                <li class="list-group-item active">Sale opportunity:</li>
+                {% for semCar in moradoresSemCarro %}
+                <li class="list-group-item">{{ semCar.1 }} <a href="/delResident/{{ semCar.0 }}"><i
+                            class="fa-solid fa-trash iconeLixoMorador"></i></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
